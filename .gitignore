@@ -1,0 +1,20 @@
+node_modules/
+.next/
+out/
+test-results/
+playwright-report/
+.env*
+!.env.example
+
+# Local QA, caches and private inputs
+qa/
+*.tsbuildinfo
+.DS_Store
+*.log
+*.pem
+*.key
+*.p12
+*.pfx
+# Internal owner review notes are not public repository content.
+CONTENT_TODO.md
+CONTENT_APPROVAL.md
