@@ -86,3 +86,7 @@ An English two-page PDF and editable DOCX draft are retained locally in ignored 
 ## First source publication authorization
 
 On 24 November 2026 the owner authorized the initial commit and push, including the approved resume and portrait, but not GitHub Pages activation or site publication. The deployment job is explicitly disabled with `if: ${{ false }}`. Pushes may run build/tests and upload the workflow artifact, but cannot execute the Pages deployment job. Enabling it requires a separately authorized source change and Pages setup. Earlier no-commit/no-push statements describe preparation history and are superseded by the first source publication once pushed.
+
+## Deployment authorization — 24 November 2026
+
+Owner authorized GitHub Pages publication. Pages source is GitHub Actions and the deployment job is enabled for main after successful build/tests. This supersedes the earlier disabled-deployment state. Production URL: https://pedroalsilva.github.io.

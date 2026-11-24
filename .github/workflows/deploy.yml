@@ -52,8 +52,7 @@ jobs:
         with:
           path: out
   deploy:
-    # Publication is intentionally disabled until separate owner authorization.
-    if: ${{ false }}
+    if: github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
     timeout-minutes: 10
