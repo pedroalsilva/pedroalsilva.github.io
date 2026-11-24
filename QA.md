@@ -148,3 +148,10 @@ Owner approved publication of the revised personal hero, three factual AI/automa
 Local checks: production build (including TypeScript), standalone typecheck, ESLint, 2 unit tests and 25 browser tests passed. Static export, local asset references, metadata and license notices verified. Browser checks include captions at 320/375/768px, desktop/mobile navigation, movement, collisions, touch controls, panels, resume and accessibility. Duplicate generated `.next/types` files were moved out of the project and regenerated before the successful standalone typecheck.
 
 Online deployment validation follows the authorized push; local screenshots are retained in ignored `qa/`.
+
+
+## 2026-11-24 — Explicit game start and return journey (local review)
+
+Added a map overlay with Start exploring, keyboard/touch guidance, disabled touch controls until start, and automatic canvas focus. Removed Focus game. Direct building navigation remains available before starting. Building content links carry a contextual return link. Session storage retains player coordinates and start state within the current browser tab; failures of storage do not block exploration. Closing a panel preserves position and does not show the start overlay again. Returning via the contextual link or browser Back restores the game without restarting.
+
+Validated: production build with TypeScript, ESLint, static export and license checks, 2 unit tests, and 28 browser tests. New tests cover keyboard activation, pre-start direct access, project and homepage returns, browser Back, position restoration and overlay accessibility at 375/1440px. Screenshots: ignored qa/world-start-375.png, qa/world-start-1440.png, qa/world-return-375.png and qa/world-return-1440.png. Owner approved this version and authorized commit, push and online validation on 2026-11-24. Deployment and online verification follow the authorized push.

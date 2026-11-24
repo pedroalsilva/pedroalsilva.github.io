@@ -3,7 +3,7 @@ import { mapPixels, canMove, nearestBuilding } from './map';
 import { buildings, type BuildingId } from '../content/portfolio';
 export type Controls = { up:boolean; down:boolean; left:boolean; right:boolean; paused:boolean };
 export type GameHandle = { destroy:()=>void; pause:(paused:boolean)=>void };
-export function createGame(parent:HTMLElement, controls:Controls, onNear:(id:BuildingId|null)=>void, onReady:()=>void):GameHandle {
+export function createGame(parent:HTMLElement, controls:Controls, onNear:(id:BuildingId|null)=>void, onReady:()=>void, initialPosition?:{x:number;y:number}):GameHandle {
 
  const labels=buildings.map(b=>{const el=document.createElement('div');el.className='campus-label';el.textContent=b.title;el.style.setProperty('--building-color',b.color);el.setAttribute('aria-hidden','true');parent.appendChild(el);return {b,el};});
  class Campus extends Phaser.Scene {
@@ -26,7 +26,9 @@ export function createGame(parent:HTMLElement, controls:Controls, onNear:(id:Bui
     this.anims.create({key:`idle-${dir}`,frames:[{key:`player-${dir}-0`},{key:`player-${dir}-2`}],frameRate:1,repeat:-1});
    });
    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){const beacon=this.add.rectangle(400,297,6,6,0xb9f5e1);this.tweens.add({targets:beacon,alpha:.35,duration:1800,yoyo:true,repeat:-1});}
-   this.player=this.add.sprite(400,385,'player-down-0').setOrigin(.5,.8).setDepth(10);
+   const spawn=initialPosition&&canMove(initialPosition.x,initialPosition.y)?initialPosition:{x:400,y:385};
+   this.player=this.add.sprite(spawn.x,spawn.y,'player-down-0').setOrigin(.5,.8).setDepth(10);
+   parent.dataset.playerX=String(spawn.x);parent.dataset.playerY=String(spawn.y);
    const resize=()=>{const width=parent.clientWidth;const height=parent.clientHeight;this.scale.resize(width,height);const zoom=Math.min(width/800,height/600);this.cameras.main.setZoom(zoom).setBounds(0,0,800,600).startFollow(this.player,true,1,1);};
    resize(); const observer=new ResizeObserver(resize);observer.observe(parent);
    this.events.once('shutdown',()=>observer.disconnect());
