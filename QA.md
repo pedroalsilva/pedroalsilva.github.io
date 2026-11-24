@@ -173,3 +173,8 @@ Owner screenshot shows native text selection on nearby touch instructions during
 Apple reference: https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariCSSRef/Articles/StandardCSSProperties.html
 
 Production build, static export, TypeScript and lint checked. A new regression test verifies inherited selection prevention, hold/release/cancel handling, context-menu suppression and selectable dialog content. WebKit 27.2 with iPhone 13 emulation passed. This automated pointer-event test cannot reproduce the native iOS selection UI; a physical iPhone hold-and-release check remains necessary after deployment. Optional local command: npx playwright install webkit, then npm test -- --config=playwright.webkit.config.ts. Owner authorized commit, push and publication of this fix. Online validation follows deployment; physical iPhone confirmation remains pending.
+
+
+## 2026-11-24 — Approved resume link and colour revision
+
+Owner authorized replacing the public resume with the reviewed two-page PDF: navy/grey palette; LinkedIn, GitHub and Personal website & portfolio labels with expanded, non-overlapping link annotations; Digital and Analytics moved into the job title. Both pages visually reviewed and extracted text compared with the previous public copy, allowing only the approved header/title changes. Editable DOCX and reproducible revision/finalization scripts remain in ignored qa/resume-links; only the final PDF is distributed.
