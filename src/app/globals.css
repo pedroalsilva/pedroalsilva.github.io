@@ -34,3 +34,7 @@
 
 /* Academic qualification names must remain complete and visible. */
 .academic .journey-event strong{display:block;overflow:visible;-webkit-line-clamp:unset;overflow-wrap:normal}
+
+/* Prevent iOS long-press text selection around held direction controls. */
+.campus-play-area,.campus-play-area *{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.dpad,.dpad *{touch-action:none}
