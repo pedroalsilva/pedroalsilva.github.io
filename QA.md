@@ -131,3 +131,11 @@ Applied the owner-approved About progression, PostgreSQL personal-project footno
 Executed successfully: TypeScript, ESLint, 2 unit tests, production build, export validation (6 routes, 155 references and complete notices), and 20 browser tests in 23.0 seconds. Exact approved text was checked in generated homepage/project HTML; downloadable PDF matches the local approved file. Responsive widths, axe, downloads, direct refresh, portrait and Phaser flows passed. No fresh Lighthouse, remote availability or public-host result is claimed.
 
 All agreed initial content is approved. Commit, public push, Pages settings and deployment remain unauthorized. Staging remains empty; no remote action performed.
+
+## Public deployment verified — 24 November 2026
+
+Workflow run 45382725233 completed build and deployment successfully for commit 46a1024. Nineteen browser tests passed against https://pedroalsilva.github.io in 27.3 seconds: CV byte equality and native downloads at 375/1440px; all project direct routes/refresh; five responsive widths; axe; portrait; Phaser movement, collision, interactions, touch controls and load-failure alternatives. The test with a hardcoded localhost no-JS URL was excluded from this remote suite and its public checks were run separately.
+
+HTTPS checks passed for home/world/resume/three projects, sitemap, robots, OG image, full third-party notices and approved PDF. Canonical URLs/indexability validated; missing URL returned 404. Screenshots from the public site are in ignored qa/. No new Lighthouse measurement claimed.
+
+GitHub emitted non-blocking action-runtime deprecation warnings for v4 actions (Node 20 target forced to Node 24); both jobs succeeded. Review action major versions during maintenance.

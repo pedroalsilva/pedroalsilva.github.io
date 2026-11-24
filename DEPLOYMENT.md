@@ -152,3 +152,7 @@ On 24 November 2026 the owner authorized the initial commit and push, including 
 ## Deployment authorization — 24 November 2026
 
 Owner authorized GitHub Pages publication. Pages source is GitHub Actions and the deployment job is enabled for main after successful build/tests. This supersedes the earlier disabled-deployment state. Production URL: https://pedroalsilva.github.io.
+
+## Live deployment verified — 24 November 2026
+
+GitHub Actions run https://github.com/pedroalsilva/pedroalsilva.github.io/actions/runs/45382725233 deployed commit `46a1024ee5473a6228041df08820ce8c41b63703` successfully. Pages uses GitHub Actions, not branch/Jekyll publication. Site: https://pedroalsilva.github.io. Earlier pending/disabled/empty-repository statements are historical and superseded. Future pushes to main run validation and deploy automatically.

@@ -1,6 +1,7 @@
+<!-- Current deployment status supersedes historical preparation notes below. -->
 # Pedro Silva — Interactive Portfolio
 
-A locally prepared professional portfolio and original Phaser campus built around **From Operations to Intelligence**. All public copy is English. No deployment has been made.
+A locally prepared professional portfolio and original Phaser campus built around **From Operations to Intelligence**. All public copy is English. Live at https://pedroalsilva.github.io (deployed and verified 24 November 2026).
 
 ## Run
 
