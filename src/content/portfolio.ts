@@ -1,7 +1,7 @@
 export type Project = {
   slug: string; title: string; category: string; kind: string; description: string;
   tags: string[]; image: string; featured: boolean;
-  sections: { title: string; text: string }[]; github?: string; demo?: string;
+  sections: { title: string; text: string }[]; github?: string; demo?: string; thesis?: string;
 };
 export const profile = {
   name: 'Pedro Silva', role: 'Business Analytics · Data & Technology · Process Engineering',
@@ -14,7 +14,7 @@ export const experience = [
   { company: 'Sonae MC', role: 'Business Analyst', specialty: 'Retail Operations', period: 'Feb 2021 — Apr 2023', location: 'Porto, Portugal', summary: 'Translating store operations into useful analysis, process recommendations and reporting.', responsibilities: ['Operational KPI reporting and loss-prevention analysis.', 'SQL queries, workflow improvements and training for store teams.'], technologies: ['SQL', 'MicroStrategy', 'Excel', 'Power Automate'] },
 ];
 export const projects: Project[] = [
-  { slug: 'retail-forecasting', title: 'A clearer view of demand.', category: 'Analytics & Decision Intelligence', kind: 'Academic research', description: 'Comparing machine-learning approaches to retail sales forecasting, with a practical decision-support interface.', tags: ['Python', 'XGBoost', 'Flask', 'SQLite'], image: 'forecast', featured: true, sections: [
+  { slug: 'retail-forecasting', thesis: 'https://recipp.ipp.pt/entities/publication/2d2dc4bc-536b-44ce-ad6d-cc5a0d150f5d', title: 'A clearer view of demand.', category: 'Analytics & Decision Intelligence', kind: 'Academic research', description: 'Comparing machine-learning approaches to retail sales forecasting, with a practical decision-support interface.', tags: ['Python', 'XGBoost', 'Flask', 'SQLite'], image: 'forecast', featured: true, sections: [
     { title: 'Challenge', text: 'Explore sales forecasting for retail products using historical transactions. The research concerns a confidential beauty retailer; its identity and underlying data are not shared here.' },
     { title: 'Approach', text: 'Prepare transaction data and compare XGBoost, LightGBM, LSTM and Transformer models using temporal evaluation. Assess model behaviour across product families rather than relying on a single headline metric.' },
     { title: 'Solution', text: 'A forecasting prototype with a Flask interface and SQLite backend, developed as part of a master’s dissertation completed in July 2025.' },
@@ -30,12 +30,12 @@ export const projects: Project[] = [
     { title: 'Impact', text: 'Demonstrates a structured approach to logistics optimization. Industrial deployment and realized cost savings have not been established.' },
     { title: 'Learnings', text: 'An optimal plan is only useful when its assumptions reflect the operation. Scenario analysis helps reveal how constraints affect the result.' },
   ] },
-  { slug: 'fitz', title: 'From workflow to working product.', category: 'Software & Applied AI', kind: 'Personal project · AI-assisted development', description: 'FITZ: a training platform exploring the connection between coaching workflows and a usable digital product.', tags: ['Next.js', 'TypeScript', 'Supabase', 'PWA'], image: 'product', featured: true, sections: [
+  { slug: 'fitz', demo: 'https://fitz.pt', title: 'From workflow to working product.', category: 'Software & Applied AI', kind: 'Personal project · AI-assisted development', description: 'FITZ: a training platform exploring the connection between coaching workflows and a usable digital product.', tags: ['Next.js', 'TypeScript', 'Supabase', 'PWA'], image: 'product', featured: true, sections: [
     { title: 'Challenge', text: 'Build a personal software project around training and coaching workflows, bringing product decisions and implementation into the same process.' },
     { title: 'Approach', text: 'AI-assisted development with iterative implementation and testing. Local repository inspection supports the technology and feature descriptions; this is not presented as professional software engineering tenure.' },
     { title: 'Solution', text: 'A Next.js and React application with authentication, database access rules, migrations, automated tests and progressive web app support.' },
     { title: 'Technology', text: 'Next.js, React, TypeScript, CSS, Supabase/PostgreSQL, authentication and row-level security.' },
-    { title: 'Impact', text: 'A working personal product implementation. User numbers, commercial results and performance improvements are not claimed. Public demo and source links are withheld pending owner approval.' },
+    { title: 'Impact', text: 'A working personal product implementation. User numbers, commercial results and performance improvements are not claimed. Visit the FITZ website to explore the product. Source code access is available on request.' },
     { title: 'Learnings', text: 'Building FITZ brought interface design, access permissions and regression testing into the same workflow. Development was assisted by AI.' },
   ] },
 ];
