@@ -54,3 +54,9 @@ export const buildings = [
   { id: 'career', title: 'Career Archive', short: 'CAREER', description: 'A journey from retail operations to analytics and process engineering, alongside continued education.', topics: ['Retail & logistics', 'Business analysis', 'Industrial Engineering and Management — ISEP, 2025', 'Cross-functional coordination'], project: null, section: 'about', x: 500, y: 390, color: '#dab5cd' },
 ] as const;
 export type BuildingId = typeof buildings[number]['id'];
+
+export const appliedSolutions = [
+  { title: 'Operational answers with AI', context: 'adidas · Copilot Studio', label: 'Applied AI', problem: 'Operational questions need a shared understanding of business assumptions.', contribution: 'Built a Copilot Studio agent to clarify business assumptions and support operational teams.', evidence: 'In use for operational support.', tools: ['Copilot Studio', 'Business requirements'] },
+  { title: 'A clearer route for issues', context: 'adidas · Workflow automation', label: 'Automation', problem: 'Internal issues need to be consolidated and assessed before external escalation.', contribution: 'Implemented an intake and assessment workflow using Smartsheet and Power Automate, designed to avoid duplicate solution evaluations.', evidence: 'In use for internal issue intake and assessment.', tools: ['Power Automate', 'Smartsheet'] },
+  { title: 'Tools built around logistics', context: 'Ewals Cargo Care · Digital solutions', label: 'Digital tools', problem: 'Logistics teams need practical tools for planning, reporting and handling exceptions.', contribution: 'Automated workflows with Python, VBA and Power Automate, and developed Power Apps tools for operational requests and exception handling.', evidence: 'Supported adoption through documentation and training for teams and partners.', tools: ['Python', 'Power Automate', 'Power Apps'] },
+];

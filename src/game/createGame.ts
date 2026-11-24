@@ -5,12 +5,12 @@ export type Controls = { up:boolean; down:boolean; left:boolean; right:boolean; 
 export type GameHandle = { destroy:()=>void; pause:(paused:boolean)=>void };
 export function createGame(parent:HTMLElement, controls:Controls, onNear:(id:BuildingId|null)=>void, onReady:()=>void):GameHandle {
 
+ const labels=buildings.map(b=>{const el=document.createElement('div');el.className='campus-label';el.textContent=b.title;el.style.setProperty('--building-color',b.color);el.setAttribute('aria-hidden','true');parent.appendChild(el);return {b,el};});
  class Campus extends Phaser.Scene {
   player!:Phaser.GameObjects.Sprite; facing='down'; near:BuildingId|null=null; lastNear:BuildingId|null=null;
   constructor(){super('Campus');}
   create(){
    const g=this.add.graphics();for(const p of mapPixels()){g.fillStyle(parseInt(p.color.slice(1),16));g.fillRect(p.x,p.y,p.w,p.h);}g.generateTexture('campus-map',800,600);g.destroy();this.add.image(0,0,'campus-map').setOrigin(0);
-   buildings.forEach(b=>{this.add.rectangle(b.x+80,b.y+116,180,24,0x0b111b);this.add.text(b.x+80,b.y+116,b.short,{fontFamily:'Press Start 2P',fontSize:'8px',color:b.color}).setOrigin(.5);});
    const dirs=['down','left','right','up'];
    dirs.forEach(dir=>{
     for(let frame=0;frame<4;frame++){
@@ -27,9 +27,12 @@ export function createGame(parent:HTMLElement, controls:Controls, onNear:(id:Bui
    });
    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){const beacon=this.add.rectangle(400,297,6,6,0xb9f5e1);this.tweens.add({targets:beacon,alpha:.35,duration:1800,yoyo:true,repeat:-1});}
    this.player=this.add.sprite(400,385,'player-down-0').setOrigin(.5,.8).setDepth(10);
-   const resize=()=>{const width=parent.clientWidth;const height=parent.clientHeight;this.scale.resize(width,height);const zoom=width<500?Math.max(width/500,height/600):Math.min(width/800,height/600);this.cameras.main.setZoom(zoom).setBounds(0,0,800,600).startFollow(this.player,true,1,1);};
+   const resize=()=>{const width=parent.clientWidth;const height=parent.clientHeight;this.scale.resize(width,height);const zoom=Math.min(width/800,height/600);this.cameras.main.setZoom(zoom).setBounds(0,0,800,600).startFollow(this.player,true,1,1);};
    resize(); const observer=new ResizeObserver(resize);observer.observe(parent);
    this.events.once('shutdown',()=>observer.disconnect());
+   this.events.on('postupdate',()=>{const c=this.cameras.main;for(const {b,el} of labels){const x=(b.x+80-c.scrollX-c.width/2)*c.zoom+c.width/2;const y=(b.y+116-c.scrollY-c.height/2)*c.zoom+c.height/2;// Captions stay anchored to the building; the camera fits the whole campus.
+    el.hidden=false;
+    el.style.transform=`translate(${Math.round(x)}px, ${Math.round(y)}px) translate(-50%, -50%)`;el.dataset.near=String(this.near===b.id);}});
    this.game.canvas.setAttribute('aria-hidden','true');onReady();
   }
   update(_time:number,delta:number){
@@ -47,5 +50,5 @@ export function createGame(parent:HTMLElement, controls:Controls, onNear:(id:Bui
   }
  }
  const game=new Phaser.Game({type:Phaser.CANVAS,parent,width:parent.clientWidth,height:parent.clientHeight,backgroundColor:'#101f2b',pixelArt:true,roundPixels:true,antialias:false,banner:false,input:{keyboard:false},audio:{noAudio:true},scene:Campus,fps:{target:60,forceSetTimeOut:false}});
- return {destroy:()=>game.destroy(true),pause:(paused)=>{controls.paused=paused;if(paused){game.scene.pause('Campus');game.loop.sleep();}else{game.loop.wake();game.scene.resume('Campus');}}};
+ return {destroy:()=>{labels.forEach(({el})=>el.remove());game.destroy(true);},pause:(paused)=>{controls.paused=paused;if(paused){game.scene.pause('Campus');game.loop.sleep();}else{game.loop.wake();game.scene.resume('Campus');}}};
 }

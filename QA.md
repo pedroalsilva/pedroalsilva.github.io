@@ -139,3 +139,12 @@ Workflow run 45382725233 completed build and deployment successfully for commit 
 HTTPS checks passed for home/world/resume/three projects, sitemap, robots, OG image, full third-party notices and approved PDF. Canonical URLs/indexability validated; missing URL returned 404. Screenshots from the public site are in ignored qa/. No new Lighthouse measurement claimed.
 
 GitHub emitted non-blocking action-runtime deprecation warnings for v4 actions (Node 20 target forced to Node 24); both jobs succeeded. Review action major versions during maintenance.
+
+
+## 2026-11-24 — Hero, applied AI and campus readability
+
+Owner approved publication of the revised personal hero, three factual AI/automation cards and readable campus captions. Mobile now fits the complete map at 4:3, keeping captions centred on their buildings; captions are removed when the game is disposed.
+
+Local checks: production build (including TypeScript), standalone typecheck, ESLint, 2 unit tests and 25 browser tests passed. Static export, local asset references, metadata and license notices verified. Browser checks include captions at 320/375/768px, desktop/mobile navigation, movement, collisions, touch controls, panels, resume and accessibility. Duplicate generated `.next/types` files were moved out of the project and regenerated before the successful standalone typecheck.
+
+Online deployment validation follows the authorized push; local screenshots are retained in ignored `qa/`.

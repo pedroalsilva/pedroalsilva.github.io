@@ -4,7 +4,7 @@ const errors:string[]=[];
 test.beforeEach(async({page})=>{errors.length=0;page.on('pageerror',e=>errors.push(e.message));});
 test.afterEach(()=>expect(errors).toEqual([]));
 test('home, every case study, resume and internal links work',async({page})=>{
- await page.goto('/');await expect(page.getByRole('heading',{name:'From operations to intelligence.'})).toBeVisible();
+ await page.goto('/');await expect(page.getByRole('heading',{name:'Pedro Silva.'})).toBeVisible();
  const links=await page.locator('a[href^="/"]').evaluateAll(nodes=>Array.from(new Set(nodes.map(n=>n.getAttribute('href')!))));
  for(const href of links){const response=await page.request.get(href.split('#')[0]||'/');expect(response.status(),href).toBe(200);}
  for(const slug of ['retail-forecasting','offshore-logistics','fitz']){await page.goto(`/projects/${slug}/`);for(const h of ['Challenge','Approach','Solution','Technology','Impact','Learnings'])await expect(page.getByRole('heading',{name:h,exact:true})).toBeVisible();}
@@ -36,5 +36,5 @@ test('game load failure leaves accessible alternatives usable',async({page})=>{
 });
 test('Phaser is absent from homepage requests; reduced motion and no-script content work',async({page,browser})=>{
  const bodies:string[]=[];page.on('response',async r=>{if(r.url().endsWith('.js'))bodies.push(await r.text());});await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/');await page.waitForLoadState('networkidle');expect(bodies.some(b=>b.includes('Phaser')&&b.length>200000)).toBe(false);
- const context=await browser.newContext({javaScriptEnabled:false});const staticPage=await context.newPage();await staticPage.goto('http://localhost:3100/');await expect(staticPage.getByRole('heading',{name:'From operations to intelligence.'})).toBeVisible();await context.close();
+ const context=await browser.newContext({javaScriptEnabled:false});const staticPage=await context.newPage();await staticPage.goto('http://localhost:3100/');await expect(staticPage.getByRole('heading',{name:'Pedro Silva.'})).toBeVisible();await context.close();
 });
