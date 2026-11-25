@@ -196,3 +196,7 @@ Removed Arduino/ESP8266 from the main skills section; retained both in the IoT c
 
 ## FITZ positioning wording — local revision
 Replaced AI-assisted development label with Product design & development, category Software & Digital Products, and concrete iterative design/implementation/validation wording. Removed repeated assistance wording from learnings and skills footnote. Actual applied-AI contributions remain unchanged. CV/PDF unchanged; owner reminder to align the CV is recorded for after the next deployment in CONTENT_APPROVAL.md.
+
+
+## Resume positioning alignment — local
+Removed assistance qualifiers from personal-project skills and reframed FITZ around design, development and validation. Two pages rendered and visually reviewed. Extracted content matches the intended replacements after normalizing footer extraction order; three original URLs retained with enlarged targets. Public PDF replaced locally. Editable source: ignored qa/resume-positioning/Pedro_Silva_Resume.docx. Owner approved publication of this PDF revision. Deployment and live download verification follow the authorized push.
