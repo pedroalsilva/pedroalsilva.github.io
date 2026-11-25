@@ -8,6 +8,7 @@ import './globals.css';
 import { WorldReturn } from '@/components/WorldReturn';
 import { siteUrl, origin } from '@/lib/site';
 export const metadata:Metadata = {
+ verification:{google:'ZZvBc5vpb1jT3uQE0qLgfhJgzQcFJobqsonwyh7DbXU'},
  metadataBase:new URL(siteUrl), title:{default:'Pedro Silva — From Operations to Intelligence',template:'%s | Pedro Silva'},
  description:'Business analytics, data, technology and process engineering. Explore the work and professional journey of Pedro Silva.',
  robots:{index:!!origin,follow:!!origin},
