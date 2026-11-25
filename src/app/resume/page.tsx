@@ -1,7 +1,8 @@
+import { pageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { asset } from '@/lib/site';
 import { experience, profile } from '@/content/portfolio';
-export const metadata={alternates:{canonical:'/resume/'},title:'Professional profile',description:'An overview of Pedro Silva’s experience and education.'};
+export const metadata=pageMetadata('Resume — Business Analytics & Digital Solutions','Download Pedro Silva’s resume and explore his professional experience in analytics, operations, automation and process engineering.','/resume/');
 export default function Resume(){return <><Navigation/><main id="main" className="container case-study"><p className="eyebrow">PROFESSIONAL PROFILE</p><h1>Pedro Silva</h1><p className="lead">{profile.role}</p>{profile.resume ? <a className="button primary" href={asset(profile.resume)} download>Download resume PDF</a> : <p>A downloadable resume is being prepared for this portfolio. In the meantime, explore the professional overview below or connect on LinkedIn.</p>}<div className="actions"><a className="button primary" href={profile.linkedin} target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a><Link className="button secondary" href="/#experience">Explore experience</Link></div><div className="case-sections">{experience.map(e=><section key={e.company}><h2>{e.company}</h2><div><h3>{e.role}</h3><p>{e.specialty}</p><p className="label">{e.period}</p><p>{e.summary}</p></div></section>)}<section><h2>Education</h2><p>Master’s in Industrial Engineering and Management<br/>ISEP — Instituto Superior de Engenharia do Porto<br/>Completed July 2025</p></section></div></main><Footer/></>;}

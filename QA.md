@@ -200,3 +200,7 @@ Replaced AI-assisted development label with Product design & development, catego
 
 ## Resume positioning alignment — local
 Removed assistance qualifiers from personal-project skills and reframed FITZ around design, development and validation. Two pages rendered and visually reviewed. Extracted content matches the intended replacements after normalizing footer extraction order; three original URLs retained with enlarged targets. Public PDF replaced locally. Editable source: ignored qa/resume-positioning/Pedro_Silva_Resume.docx. Owner approved publication of this PDF revision. Deployment and live download verification follow the authorized push.
+
+
+## SEO metadata refinement — local review
+Route-specific search/social titles, descriptions and Open Graph URLs added for all nine pages; homepage identity graph and case-study structured data added. Existing sitemap, canonicals, robots and preview asset retained. No visible text/style changes; homepage body text compared with production and matched. Production build including TypeScript, ESLint, export checker and 20 browser tests passed (9 metadata tests plus 11 existing portfolio regressions). No publication or Search Console access. See SEO.md for findings and post-deployment steps.

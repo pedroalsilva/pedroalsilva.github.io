@@ -7,9 +7,15 @@ import { Reveal } from '@/components/Reveal';
 import { MapPreview } from '@/components/MapPreview';
 import { ProjectArt } from '@/components/ProjectArt';
 import { experience, projects, skills, complementarySkills, profile, appliedSolutions } from '@/content/portfolio';
-import { asset } from '@/lib/site';
-export const metadata = { alternates: { canonical: '/' } };
-export default function Home(){return <><Navigation/><main id="main">
+import { asset, siteUrl } from '@/lib/site';
+import { pageMetadata, homeTitle, homeDescription } from '@/lib/seo';
+import { StructuredData } from '@/components/StructuredData';
+export const metadata = pageMetadata(homeTitle, homeDescription, '/');
+export default function Home(){return <><StructuredData data={{'@context':'https://schema.org','@graph':[
+ {'@type':'Person','@id':`${siteUrl}/#person`,name:profile.name,url:`${siteUrl}/`,description:profile.role,image:`${siteUrl}/images/pedro-silva-800.webp`,sameAs:[profile.linkedin,profile.github]},
+ {'@type':'WebSite','@id':`${siteUrl}/#website`,url:`${siteUrl}/`,name:'Pedro Silva — Personal Portfolio',inLanguage:'en',about:{'@id':`${siteUrl}/#person`}},
+ {'@type':'ProfilePage','@id':`${siteUrl}/#webpage`,url:`${siteUrl}/`,name:homeTitle,description:homeDescription,inLanguage:'en',mainEntity:{'@id':`${siteUrl}/#person`},isPartOf:{'@id':`${siteUrl}/#website`}}
+ ]}}/><Navigation/><main id="main">
  <section className="hero container"><div className="hero-copy"><p className="eyebrow">PERSONAL PORTFOLIO / PORTO, PORTUGAL</p><h1>Pedro Silva<span className="hero-name-dot">.</span></h1><p className="hero-position">Business Analytics, Digital Solutions<br/> &amp; Process Engineering</p><p className="hero-concept">From operations to intelligence.</p><p className="hero-description">I connect business operations, data and technology to improve reporting, automate workflows and build practical digital solutions.</p><div className="actions"><Link className="button primary" href="#work">Explore my work</Link><Link className="text-link hero-ai-link" href="#ai-automation">AI &amp; automation in practice →</Link><Link className="button secondary" href="/world/" prefetch={false}><Gamepad2 size={18}/> Enter my world</Link></div><div className="hero-signature"><span className="signature-line"/>Pedro Silva<span className="muted"> / </span>Turning complexity into clarity.</div></div>
  <div className="hero-world"><div className="map-topline"><span>THE CONNECTED CAMPUS</span><span>EXPLORE / DISCOVER</span></div><div className="hero-map"><MapPreview/></div><div className="map-caption"><span>Four places. One connected journey.</span><Link href="/world/" prefetch={false}>Step inside <Gamepad2 size={16}/></Link></div></div>
  </section>
