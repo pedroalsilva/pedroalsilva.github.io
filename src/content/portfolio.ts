@@ -1,6 +1,7 @@
+import { additionalProjects } from './additional-projects';
 export type Project = {
   slug: string; title: string; category: string; kind: string; description: string;
-  tags: string[]; image: string; featured: boolean;
+  rooms?: ('analytics'|'operations'|'innovation')[]; tags: string[]; image: string; featured: boolean;
   sections: { title: string; text: string }[]; github?: string; demo?: string; thesis?: string;
 };
 export const profile = {
@@ -14,7 +15,7 @@ export const experience = [
   { company: 'Sonae MC', role: 'Business Analyst', specialty: 'Retail Operations', period: 'Feb 2021 — Apr 2023', location: 'Porto, Portugal', summary: 'Translating store operations into useful analysis, process recommendations and reporting.', responsibilities: ['Operational KPI reporting and loss-prevention analysis.', 'SQL queries, workflow improvements and training for store teams.'], technologies: ['SQL', 'MicroStrategy', 'Excel', 'Power Automate'] },
 ];
 export const projects: Project[] = [
-  { slug: 'retail-forecasting', thesis: 'https://recipp.ipp.pt/entities/publication/2d2dc4bc-536b-44ce-ad6d-cc5a0d150f5d', title: 'A clearer view of demand.', category: 'Analytics & Decision Intelligence', kind: 'Academic research', description: 'Comparing machine-learning approaches to retail sales forecasting, with a practical decision-support interface.', tags: ['Python', 'XGBoost', 'Flask', 'SQLite'], image: 'forecast', featured: true, sections: [
+  { slug: 'retail-forecasting', thesis: 'https://recipp.ipp.pt/entities/publication/2d2dc4bc-536b-44ce-ad6d-cc5a0d150f5d', title: 'Retail Sales Forecasting', rooms: ['analytics'], category: 'Analytics & Decision Intelligence', kind: 'Academic research', description: 'Comparing machine-learning approaches to retail sales forecasting, with a practical decision-support interface.', tags: ['Python', 'XGBoost', 'Flask', 'SQLite'], image: 'forecast', featured: true, sections: [
     { title: 'Challenge', text: 'Explore sales forecasting for retail products using historical transactions. The research concerns a confidential beauty retailer; its identity and underlying data are not shared here.' },
     { title: 'Approach', text: 'Prepare transaction data and compare XGBoost, LightGBM, LSTM and Transformer models using temporal evaluation. Assess model behaviour across product families rather than relying on a single headline metric.' },
     { title: 'Solution', text: 'A forecasting prototype with a Flask interface and SQLite backend, developed as part of a master’s dissertation completed in July 2025.' },
@@ -22,7 +23,7 @@ export const projects: Project[] = [
     { title: 'Impact', text: 'The company uses the tool, and user training was delivered. No quantitative business impact is claimed. The evaluation used products with sales history; it does not establish cold-start performance for entirely new products.' },
     { title: 'Learnings', text: 'Forecasting requires both sound temporal evaluation and an interface that people can use. Adoption and predictive performance need to be assessed separately.' },
   ] },
-  { slug: 'offshore-logistics', title: 'Better routes. Clearer trade-offs.', category: 'Operations & Optimization', kind: 'Academic project', description: 'A minimum-cost transport model for offshore supply, designed to make planning constraints explicit.', tags: ['Python', 'PuLP', 'Linear programming'], image: 'routes', featured: true, sections: [
+  { slug: 'offshore-logistics', title: 'Offshore Logistics Optimization', rooms: ['operations'], category: 'Operations & Optimization', kind: 'Academic project', description: 'A minimum-cost transport model for offshore supply, designed to make planning constraints explicit.', tags: ['Python', 'PuLP', 'Linear programming'], image: 'routes', featured: false, sections: [
     { title: 'Challenge', text: 'Model transport planning for offshore platforms while accounting for the constraints of a logistics network.' },
     { title: 'Approach', text: 'Express the planning problem as a linear programming model and compare scenarios. This is an academic optimization project from January 2025.' },
     { title: 'Solution', text: 'A Python-based model for finding a minimum-cost transport plan within the defined assumptions and constraints.' },
@@ -30,23 +31,27 @@ export const projects: Project[] = [
     { title: 'Impact', text: 'Demonstrates a structured approach to logistics optimization. Industrial deployment and realized cost savings have not been established.' },
     { title: 'Learnings', text: 'An optimal plan is only useful when its assumptions reflect the operation. Scenario analysis helps reveal how constraints affect the result.' },
   ] },
-  { slug: 'fitz', demo: 'https://fitz.pt', title: 'From workflow to working product.', category: 'Software & Applied AI', kind: 'Personal project · AI-assisted development', description: 'FITZ: a training platform exploring the connection between coaching workflows and a usable digital product.', tags: ['Next.js', 'TypeScript', 'Supabase', 'PWA'], image: 'product', featured: true, sections: [
+  { slug: 'fitz', demo: 'https://fitz.pt', title: 'FITZ Training Platform', rooms: ['innovation'], category: 'Software & Digital Products', kind: 'Personal project · Product design & development', description: 'FITZ: a training platform exploring the connection between coaching workflows and a usable digital product.', tags: ['Next.js', 'TypeScript', 'Supabase', 'PWA'], image: 'product', featured: true, sections: [
     { title: 'Challenge', text: 'Build a personal software project around training and coaching workflows, bringing product decisions and implementation into the same process.' },
-    { title: 'Approach', text: 'AI-assisted development with iterative implementation and testing. Local repository inspection supports the technology and feature descriptions; this is not presented as professional software engineering tenure.' },
+    { title: 'Approach', text: 'I connected product design, implementation and validation through iterative development and testing, working on coaching workflows, interfaces and access permissions.' },
     { title: 'Solution', text: 'A Next.js and React application with authentication, database access rules, migrations, automated tests and progressive web app support.' },
     { title: 'Technology', text: 'Next.js, React, TypeScript, CSS, Supabase/PostgreSQL, authentication and row-level security.' },
     { title: 'Impact', text: 'A working personal product implementation. User numbers, commercial results and performance improvements are not claimed. Visit the FITZ website to explore the product. Source code access is available on request.' },
-    { title: 'Learnings', text: 'Building FITZ brought interface design, access permissions and regression testing into the same workflow. Development was assisted by AI.' },
+    { title: 'Learnings', text: 'Building FITZ brought interface design, access permissions and regression testing into the same workflow.' },
   ] },
 ];
+projects.push(...additionalProjects);
+projects.sort((a,b)=>['retail-forecasting','fitz','malibu-ecopower','marketplace-optimization','offshore-logistics','iot-automated-feeder'].indexOf(a.slug)-['retail-forecasting','fitz','malibu-ecopower','marketplace-optimization','offshore-logistics','iot-automated-feeder'].indexOf(b.slug));
+
 export const skills = [
   { title: 'Analytics & Business Intelligence', items: ['Power BI', 'Databricks', 'Reporting governance', 'Data modelling'] },
   { title: 'Programming & Data', items: ['SQL', 'Python', 'PostgreSQL¹', 'Data preparation'] },
-  { title: 'Process Engineering & Optimization', items: ['Supply chain', 'Process improvement', 'Linear programming', 'Scenario analysis'] },
-  { title: 'Automation & Digital Solutions', items: ['Power Automate', 'Power Apps', 'Next.js / React¹', 'TypeScript¹'] },
+  { title: 'Process Engineering & Optimization', items: ['Supply chain', 'Process improvement', 'Linear programming', 'Scenario analysis', 'Metaheuristics²'] },
+  { title: 'Automation & Digital Solutions', items: ['Power Automate', 'Power Apps', 'OutSystems²', 'Next.js / React¹', 'TypeScript¹'] },
   { title: 'Applied AI & Machine Learning', items: ['Copilot Studio', 'Forecasting²', 'XGBoost / LightGBM²', 'Model evaluation²'] },
-  { title: 'Business & Leadership', items: ['Business requirements', 'Cross-functional coordination', 'UAT', 'Documentation & training'] },
+  { title: 'Business & Leadership', items: ['Business requirements', 'Cross-functional coordination', 'UAT', 'Documentation & training', 'Product roadmaps²', 'Personas & service design²'] },
 ];
+export const complementarySkills = 'Complementary academic experience: Node-RED and MQTT for IoT integration.';
 export const buildings = [
   { id: 'operations', title: 'Operations Hub', short: 'OPERATIONS', description: 'Where real-world constraints become better processes. Explore logistics, supply chain and optimization.', topics: ['Supply chain', 'Logistics', 'Process engineering', 'Continuous improvement'], project: 'offshore-logistics', section: 'experience', x: 140, y: 150, color: '#d8b68a' },
   { id: 'analytics', title: 'Analytics Lab', short: 'ANALYTICS', description: 'Turning operational questions into useful evidence, from reporting to forecasting.', topics: ['Business intelligence', 'SQL & Python', 'Databricks', 'Data modelling'], project: 'retail-forecasting', section: 'skills', x: 500, y: 150, color: '#73e3c0' },

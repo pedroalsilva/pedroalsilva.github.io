@@ -178,3 +178,21 @@ Production build, static export, TypeScript and lint checked. A new regression t
 ## 2026-11-24 — Approved resume link and colour revision
 
 Owner authorized replacing the public resume with the reviewed two-page PDF: navy/grey palette; LinkedIn, GitHub and Personal website & portfolio labels with expanded, non-overlapping link annotations; Digital and Analytics moved into the job title. Both pages visually reviewed and extracted text compared with the previous public copy, allowing only the approved header/title changes. Editable DOCX and reproducible revision/finalization scripts remain in ignored qa/resume-links; only the final PDF is distributed.
+
+
+## 2026-11-25 — Expanded academic portfolio (local review)
+
+Added Malibu EcoPower, Marketplace Purchase Optimization and IoT Automated Feeder, with explicit team context and individual contribution. Owner-confirmed two-semester development, working OutSystems application and top-three presentation result are reflected. External entity identity is omitted; no source reports, presentation screenshots, credentials or private repositories are distributed. Original conceptual SVGs illustrate the projects. Skills, About, work introduction, building collections and Career Journey project links were reviewed and updated. CV and LinkedIn remain unchanged.
+
+Case studies distinguish GitHub profile navigation from per-project email access requests. Requests include the project name and a GitHub-username prompt; they neither reveal private repositories nor grant access. No email was sent during validation.
+
+Validation: production build and static export passed; export checker verified 9 routes and 256 local references, metadata and notices. Full browser suite passed (33 tests); the two new desktop/mobile traversal tests also passed independently. Two unit tests and ESLint passed. Duplicate generated Next route-type files with “ 2” suffixes caused a standalone typecheck failure; these generated duplicates were moved outside the project before a successful standalone typecheck rerun. Desktop/mobile project screenshots reviewed locally; accessibility checks and direct case-study reloads passed. No commit, push or deployment performed. New editorial copy remains available for owner review before publication.
+
+
+## Skills positioning refinement
+
+Removed Arduino/ESP8266 from the main skills section; retained both in the IoT case study. Node-RED/MQTT now appear in a separate complementary academic experience note. OutSystems follows Power Automate and Power Apps, ahead of personal-project web technologies. SQL/Python, Power BI/Databricks and Copilot Studio retain leading positions in their groups. Local-only change; no CV edits or publication.
+
+
+## FITZ positioning wording — local revision
+Replaced AI-assisted development label with Product design & development, category Software & Digital Products, and concrete iterative design/implementation/validation wording. Removed repeated assistance wording from learnings and skills footnote. Actual applied-AI contributions remain unchanged. CV/PDF unchanged; owner reminder to align the CV is recorded for after the next deployment in CONTENT_APPROVAL.md.

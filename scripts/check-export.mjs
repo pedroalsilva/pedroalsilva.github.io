@@ -6,7 +6,7 @@ import path from 'node:path';
 const production = process.argv.includes('--production');
 const prefix = production ? '' : process.env.NEXT_PUBLIC_BASE_PATH || '';
 const origin = 'https://pedroalsilva.github.io';
-const routes = ['', 'world', 'resume', 'projects/retail-forecasting', 'projects/offshore-logistics', 'projects/fitz'];
+const routes = ['', 'world', 'resume', 'projects/retail-forecasting', 'projects/offshore-logistics', 'projects/fitz', 'projects/malibu-ecopower', 'projects/marketplace-optimization', 'projects/iot-automated-feeder'];
 let references = 0;
 async function checkReference(url, from = '/') {
   if (/^(https?:|data:|mailto:|#|\/\/)/.test(url)) return;

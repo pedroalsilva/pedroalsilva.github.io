@@ -40,7 +40,7 @@ Playwright uses installed Chrome on local macOS. Linux/CI uses Playwright Chromi
 
 ## Editing content
 
-Edit `src/content/portfolio.ts` for experience, projects, skills, contact links and building panels. Project slugs are generated at build time. `profile.email` is owner-approved; `profile.resume` points to the owner-approved `/documents/Pedro_Silva_Resume.pdf`. The navigation, contact section and professional overview offer the approved PDF download. Place the approved PDF at `public/documents/Pedro_Silva_Resume.pdf`, set `profile.resume` to `/documents/Pedro_Silva_Resume.pdf`, rebuild, and verify the native download on `/resume/`; never silently copy private application CVs.
+Edit `src/content/portfolio.ts` for experience, skills, contact links and existing projects; additional academic cases live in `src/content/additional-projects.ts`. Project `rooms` determine thematic building membership. Project slugs are generated at build time. `profile.email` is owner-approved; `profile.resume` points to the owner-approved `/documents/Pedro_Silva_Resume.pdf`. The navigation, contact section and professional overview offer the approved PDF download. Place the approved PDF at `public/documents/Pedro_Silva_Resume.pdf`, set `profile.resume` to `/documents/Pedro_Silva_Resume.pdf`, rebuild, and verify the native download on `/resume/`; never silently copy private application CVs.
 
 Public descriptions are grounded in `../career-profile/MASTER_PROFILE.md`; that internal source is **not** copied into the site. Check the local-only `CONTENT_APPROVAL.md` and `CONTENT_TODO.md` before launch; it is ignored by Git to keep internal owner-review notes private. Do not publish the parent CV2026 folder.
 
@@ -74,7 +74,7 @@ Campus, sprites and project illustrations are original code-generated artwork. N
 
 Edit content and run `npm run typecheck`, `npm run lint`, `npm run test:unit`, `npm run build:production`, `npm run check:production`, and `npm test`. After owner review and explicit publication authorization, commit and push `main`; Actions performs the same validation before deployment. Never force-push an existing remote history.
 
-To add a case study, add a unique slug and all six sections to `projects` in `src/content/portfolio.ts`. Add its illustration or approved asset, choose the featured flag and optional approved demo/source URLs. `generateStaticParams()` builds its route automatically. Update the route lists in `scripts/check-export.mjs` and deployment tests so direct access is checked, then rebuild. Link an appropriate building if relevant. No component rewrite is needed.
+To add a case study, add a unique slug and the six core sections (plus My contribution where relevant) to the project content files. Add its illustration or approved asset, choose the featured flag and optional approved demo/source URLs. `generateStaticParams()` builds its route automatically. Update the route lists in `scripts/check-export.mjs` and deployment tests so direct access is checked, then rebuild. Link an appropriate building if relevant. No component rewrite is needed.
 
 ## Distributed license notices
 
@@ -91,3 +91,6 @@ On 24 November 2026 the owner authorized the initial commit and push, including 
 ## Deployment authorization — 24 November 2026
 
 Owner authorized GitHub Pages publication. Pages source is GitHub Actions and the deployment job is enabled for main after successful build/tests. This supersedes the earlier disabled-deployment state. Production URL: https://pedroalsilva.github.io.
+
+
+Project-access requests use project-specific mailto links; GitHub profile links remain separate. This does not reveal private repositories or grant access. Raw academic reports, client-identifying material and review extracts remain outside public assets.
